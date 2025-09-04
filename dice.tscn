@@ -1,0 +1,47 @@
+[gd_scene load_steps=11 format=3 uid="uid://pjhfe6hsqbs0"]
+
+[ext_resource type="Texture2D" uid="uid://dfmj6qsgcq8hi" path="res://image/side_1_pips.png" id="1_ju2fo"]
+[ext_resource type="Script" uid="uid://cixb541rcfwpu" path="res://Dice.cs" id="1_m4jp2"]
+[ext_resource type="Texture2D" uid="uid://gb35ar2v3f3l" path="res://image/side_2_pips.png" id="3_y4pxb"]
+[ext_resource type="Texture2D" uid="uid://bki5lifjyfbui" path="res://image/side_3_pips.png" id="4_1erj6"]
+[ext_resource type="Texture2D" uid="uid://c5goybxjrdanh" path="res://image/side_4_pips.png" id="5_g08j5"]
+[ext_resource type="Texture2D" uid="uid://bhulwoo67xik7" path="res://image/side_5_pips.png" id="6_k2puv"]
+[ext_resource type="Texture2D" uid="uid://dxhl6o35vmo68" path="res://image/side_6_pips.png" id="7_wa5hx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y4pxb"]
+friction = 0.7
+bounce = 0.3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qu4n6"]
+size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4pxb"]
+size = Vector2(49, 51)
+
+[node name="Dice" type="RigidBody2D"]
+mass = 0.5
+physics_material_override = SubResource("PhysicsMaterial_y4pxb")
+gravity_scale = 0.0
+linear_damp = 0.8
+angular_velocity = 20.944
+angular_damp = 1.2
+constant_torque = 20.0
+script = ExtResource("1_m4jp2")
+_diceTextures = [ExtResource("1_ju2fo"), ExtResource("3_y4pxb"), ExtResource("4_1erj6"), ExtResource("5_g08j5"), ExtResource("6_k2puv"), ExtResource("7_wa5hx")]
+
+[node name="DiceSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_ju2fo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qu4n6")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_y4pxb")
+
+[node name="Timer" type="Timer" parent="."]

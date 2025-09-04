@@ -1,0 +1,130 @@
+[gd_scene load_steps=7 format=3 uid="uid://xvaxmwl40ivp"]
+
+[ext_resource type="Script" uid="uid://c5ietb7bntreb" path="res://Hud.cs" id="1_37p78"]
+[ext_resource type="Texture2D" uid="uid://41i4huqn00ib" path="res://image/Pngtree_dice.png" id="2_64ctp"]
+[ext_resource type="Script" uid="uid://cj3r5hkssn3lm" path="res://ResultGrid.cs" id="3_8sq4i"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_8sq4i"]
+keycode = 4194308
+
+[sub_resource type="Shortcut" id="Shortcut_640wx"]
+events = [SubResource("InputEventKey_8sq4i")]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64ctp"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(97.237, 0, 0.168, 1)
+
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("_throwButton")]
+script = ExtResource("1_37p78")
+_throwButton = NodePath("ThrowDice")
+metadata/_edit_vertical_guides_ = [-90.0]
+
+[node name="ThrowDice" type="Button" parent="."]
+offset_right = 1222.0
+offset_bottom = 1208.0
+scale = Vector2(0.04, 0.04)
+theme_override_font_sizes/font_size = 30
+theme_override_icons/icon = ExtResource("2_64ctp")
+shortcut = SubResource("Shortcut_640wx")
+text = "0"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 50.0
+offset_right = 99.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResultGrid" type="GridContainer" parent="."]
+offset_left = 250.0
+offset_top = 150.0
+offset_right = 618.0
+offset_bottom = 428.0
+scale = Vector2(0.9, 0.9)
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3
+script = ExtResource("3_8sq4i")
+
+[node name="Label" type="Label" parent="ResultGrid"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_64ctp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="ResultGrid"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_64ctp")
+text = "Сумма"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="ResultGrid"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_64ctp")
+text = "Школа"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="ResultGrid"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_64ctp")
+text = "P1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="ResultGrid"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_64ctp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="ResultGrid"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_64ctp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="ResultGrid"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_64ctp")
+text = "P2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="ResultGrid"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_64ctp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label9" type="Label" parent="ResultGrid"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_64ctp")
+horizontal_alignment = 1
+vertical_alignment = 1

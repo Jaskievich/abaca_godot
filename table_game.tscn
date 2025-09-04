@@ -1,0 +1,963 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq3cr6igrjnka"]
+
+[ext_resource type="Script" uid="uid://nt80g67isd7l" path="res://TableGame.cs" id="1_nr2j5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_345mh"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.968627, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nr2j5"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(100, 0.027, 0.137, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -104.0
+offset_right = -728.0
+offset_bottom = -256.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nr2j5")
+
+[node name="NamePlayr" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 48
+text = "Игрок"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_top = 60.0
+offset_right = 380.0
+offset_bottom = 748.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 7
+
+[node name="Label" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_nr2j5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label9" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label10" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label11" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label12" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label13" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label14" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label15" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label16" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label17" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label18" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label19" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label20" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label21" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label22" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label23" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label24" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label25" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label26" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label27" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label28" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label29" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label30" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label31" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label32" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label33" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label34" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label35" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label36" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label37" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label38" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label39" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label40" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label41" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label42" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label43" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+text = "P"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label44" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label45" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label46" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label47" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label48" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label49" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label50" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label51" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label52" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label53" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label54" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label55" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label56" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label57" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+text = "T"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label58" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label59" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label60" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label61" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label62" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label63" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label64" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+text = "F"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label65" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label66" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label67" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label68" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label69" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label70" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label71" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+text = "e"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label72" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label73" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label74" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label75" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label76" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label77" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label78" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label79" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label80" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label81" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label82" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label83" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label84" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label85" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+text = "C"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label86" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label87" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label88" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label89" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label90" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label91" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label92" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label93" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label94" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label95" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label96" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label97" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label98" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label99" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+text = "Sm"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label100" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label101" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label102" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label103" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label104" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label105" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label106" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+text = "Pr"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label107" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label108" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label109" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label110" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label111" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label112" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_345mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="OnGuiInput"]

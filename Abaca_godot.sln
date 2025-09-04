@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abaca_godot", "Abaca_godot.csproj", "{7E1E5FD5-4167-48DE-975D-895EC1B76CEE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E1E5FD5-4167-48DE-975D-895EC1B76CEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E1E5FD5-4167-48DE-975D-895EC1B76CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E1E5FD5-4167-48DE-975D-895EC1B76CEE}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{7E1E5FD5-4167-48DE-975D-895EC1B76CEE}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{7E1E5FD5-4167-48DE-975D-895EC1B76CEE}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{7E1E5FD5-4167-48DE-975D-895EC1B76CEE}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal

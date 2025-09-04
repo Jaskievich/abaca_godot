@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://bty02c4dwigq"]
+
+[ext_resource type="PackedScene" uid="uid://pjhfe6hsqbs0" path="res://dice.tscn" id="1_dmcqg"]
+
+[node name="DiceSet" type="Node2D"]
+
+[node name="Dice1" parent="." instance=ExtResource("1_dmcqg")]
+position = Vector2(80, 0)
+
+[node name="Dice2" parent="." instance=ExtResource("1_dmcqg")]
+position = Vector2(150, 0)
+_currentIndex = 1
+
+[node name="Dice3" parent="." instance=ExtResource("1_dmcqg")]
+position = Vector2(220, 0)
+_currentIndex = 2
+
+[node name="Dice4" parent="." instance=ExtResource("1_dmcqg")]
+position = Vector2(290, 0)
+_currentIndex = 3
+
+[node name="Dice5" parent="." instance=ExtResource("1_dmcqg")]
+position = Vector2(360, 0)
+_currentIndex = 4
