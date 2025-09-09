@@ -186,8 +186,8 @@ public partial class Hud : CanvasLayer
 					resultGrid.SetValue(currPayer.name, currPayer.boardGame.sumTotal, currPayer.boardGame.sumScool);
 					if (game.IsGameOver()) {
 				//// Вывести сообщение о победителе и выйти из цикла игры 
-						//MessageBox::ShowInfo(u8"Игра завершена", game.messageResult);
-						//isGameStop = true;
+					
+						ShowAcceptDialog("Игра окончена", "dscac");
 						return;
 					}
 					arrayCube.Reset();
@@ -199,6 +199,19 @@ public partial class Hud : CanvasLayer
 			}
 		//	GD.Print("OnClickSymbol ", val);
 		}
+	}
+	
+	 public void ShowAcceptDialog(string title, string message)
+	{
+		var dialog = new AcceptDialog();
+		dialog.Title = title;
+		dialog.DialogText = message;
+		
+		GetTree().Root.AddChild(dialog);
+		dialog.PopupCentered();
+		
+		dialog.Confirmed += () => GD.Print("Диалог подтвержден");
+		dialog.Canceled += () => GD.Print("Диалог отменен");
 	}
 	
 	private void ResetDiceSet()
