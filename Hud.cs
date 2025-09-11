@@ -168,7 +168,7 @@ public partial class Hud : CanvasLayer
 	
 	private void OnClickSymbol(Combination comb)
 	{
-		GD.Print("OnClickSymbol ");
+	//	GD.Print("OnClickSymbol ");
 		if (calculators.TryGetValue(comb, out ScoreCalculator calculator))
 		{
 		//	GD.Print("OnClickSymbol ", comb);
@@ -185,9 +185,8 @@ public partial class Hud : CanvasLayer
 					currTableGame.FillTable(currPayer.boardGame);
 					resultGrid.SetValue(currPayer.name, currPayer.boardGame.sumTotal, currPayer.boardGame.sumScool);
 					if (game.IsGameOver()) {
-				//// Вывести сообщение о победителе и выйти из цикла игры 
-					
-						ShowAcceptDialog("Игра окончена", "dscac");
+				//// Вывести сообщение о победителе и выйти из цикла игры 					
+						ShowAcceptDialog("Игра окончена", game.messageResult);
 						return;
 					}
 					arrayCube.Reset();
@@ -209,9 +208,9 @@ public partial class Hud : CanvasLayer
 		
 		GetTree().Root.AddChild(dialog);
 		dialog.PopupCentered();
-		
-		dialog.Confirmed += () => GD.Print("Диалог подтвержден");
-		dialog.Canceled += () => GD.Print("Диалог отменен");
+		//
+		//dialog.Confirmed += () => GD.Print("Диалог подтвержден");
+		//dialog.Canceled += () => GD.Print("Диалог отменен");
 	}
 	
 	private void ResetDiceSet()

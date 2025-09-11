@@ -378,7 +378,7 @@ public class Game
 			if (vPaers[i].boardGame.sumTotal > vPaers[i_max].boardGame.sumTotal)
 				i_max = i;
 		}		
-		messageResult = "Выиграл " + vPaers[i_max].GetNameToString();
+		messageResult = "Выиграл игрок " + vPaers[i_max].GetNameToString();
 		messageResult += " со счетом " + vPaers[i_max].boardGame.sumTotal;
 	}
 }
