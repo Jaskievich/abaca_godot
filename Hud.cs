@@ -13,10 +13,12 @@ public partial class Hud : CanvasLayer
 		
 	private ArrayCube arrayCube = new ArrayCube();
 	
-	private Game game = new Game(2, new List<string> { "Алиса", "Боб" });
+	private Game game = new Game(2, new List<string> { "Игрок 1", "Игрок 2" });
 	private TableGame currTableGame = null;
 	private TableGame [] arrTableGame = new TableGame[2];
 	private ResultGrid resultGrid;
+	
+	private InputDialog _inputDialog;
 	
 	Dictionary<Combination, ScoreCalculator> calculators = new Dictionary<Combination, ScoreCalculator>
 	{
@@ -38,7 +40,7 @@ public partial class Hud : CanvasLayer
 	};
 	
 	public override void _Ready()
-	{
+	{		
 		_throwButton.Pressed += OnThrowButtonPressed;
 		foreach (Node node in _diceSet.GetChildren())
 		{
@@ -46,35 +48,80 @@ public partial class Hud : CanvasLayer
 			{
 				dice._SetDiceEnabled += OnSetDiceEnabled;
 			}
-		}
+		}		
+		  // Инициализируем и показываем диалог сразу
+		if(InitInputDialog())
+		{
+			// Используем CallDeferred чтобы убедиться, что все узлы полностью загружены
+			CallDeferred(nameof(ShowInputDialog));
+		}			
 		resultGrid = GetNode<ResultGrid>("ResultGrid");
-		Payer currPayer = game.GetCurrentPayer();
-		arrTableGame[0] =  GetParent().GetNode<TableGame>("TableGame1");
-		arrTableGame[0].SetNamePlayer(currPayer.name);
-		resultGrid.SetName1(currPayer.name);
+	}
+	
+	private bool InitInputDialog()
+	{
+		_inputDialog = GD.Load<PackedScene>("res://InputDialog.tscn").Instantiate<InputDialog>();
+		if(_inputDialog == null) 
+		{
+			GD.PrintErr("Не удалось загрузить InputDialog");
+			return false;
+		}				
+		AddChild(_inputDialog);				
+		// Подключаем сигналы
+		_inputDialog.OkPressed += OnFirstButtonPressed;
+		_inputDialog.CancelPressed += OnSecondButtonPressed;			
+		return true;
+	}
+
+	private void ShowInputDialog()
+	{
+		 _inputDialog.ShowDialog("Введите имена игроков");
+	}
+	
+	private void OnFirstButtonPressed(string firstText, string secondText)
+	{
+		GD.Print($"Игроки: {firstText}, {secondText}");		
+		// Устанавливаем имена игроков
+		if (game.vPaers.Count >= 2)
+		{
+			game.vPaers[0].name = string.IsNullOrEmpty(firstText) ? "Игрок 1" : firstText;
+			game.vPaers[1].name = string.IsNullOrEmpty(secondText) ? "Игрок 2" : secondText;
+		}		
+		// Инициализируем UI с новыми именами
+		InitializeGameUI();
+		GD.Print("Игра началась!");
+	}
+
+	private void OnSecondButtonPressed()
+	{
+		GD.Print("Ввод имен отменен");		
+		// Инициализируем UI с именами по умолчанию
+		InitializeGameUI();
+	}
+
+	// Новый метод для инициализации UI после ввода имен
+	private void InitializeGameUI()
+	{
+		Payer currPayer = game.GetCurrentPayer();	
+		// Инициализируем таблицы игроков
+		arrTableGame[0] = GetParent().GetNode<TableGame>("TableGame1");
+		arrTableGame[0].SetNamePlayer(game.vPaers[0].name);
+		resultGrid.SetName1(game.vPaers[0].name);
+		
 		currTableGame = arrTableGame[0];
+		
 		game.NextPayer();
 		currPayer = game.GetCurrentPayer();
-		arrTableGame[1] =  GetParent().GetNode<TableGame>("TableGame2");
-		arrTableGame[1].SetNamePlayer(currPayer.name);
-		arrTableGame[1].SetSceneDisabled(true);	
-		resultGrid.SetName2(currPayer.name);
+		
+		arrTableGame[1] = GetParent().GetNode<TableGame>("TableGame2");
+		arrTableGame[1].SetNamePlayer(game.vPaers[1].name);
+		arrTableGame[1].SetSceneDisabled(true);    
+		resultGrid.SetName2(game.vPaers[1].name);
+		
 		game.NextPayer();
 		currPayer = game.GetCurrentPayer();
 	}
-	
-	//// debag
-	//private void PrintTree(Node node, int depth)
-	//{
-		//string indent = new string(' ', depth * 2);
-		//GD.Print($"{indent}{node.Name} ({node.GetType().Name})");
-		//
-		//foreach (Node child in node.GetChildren())
-		//{
-			//PrintTree(child, depth + 1);
-		//}
-	//}
-	
+		
 	private void OnThrowButtonPressed()
 	{
 		if( game.currStep >=  Game.N_STEP) return ;

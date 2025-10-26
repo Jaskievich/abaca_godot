@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://drqyr7wo7c15q"]
+
+[ext_resource type="Script" uid="uid://bc4tjtmo3nkdl" path="res://InputDialog.cs" id="1_cstx5"]
+
+[node name="InputDialog" type="AcceptDialog"]
+title = "Введите игроков"
+position = Vector2i(0, 36)
+size = Vector2i(299, 190)
+visible = true
+ok_button_text = "Применить"
+script = ExtResource("1_cstx5")
+OkText = "Применить"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 291.0
+offset_bottom = 141.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Игрок 1 :"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Игрок 2 :"
+
+[node name="LineEdit2" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
