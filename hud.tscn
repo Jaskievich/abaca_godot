@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://xvaxmwl40ivp"]
+[gd_scene load_steps=9 format=3 uid="uid://xvaxmwl40ivp"]
 
 [ext_resource type="Script" uid="uid://c5ietb7bntreb" path="res://Hud.cs" id="1_37p78"]
 [ext_resource type="Texture2D" uid="uid://41i4huqn00ib" path="res://image/Pngtree_dice.png" id="2_64ctp"]
 [ext_resource type="Script" uid="uid://cj3r5hkssn3lm" path="res://ResultGrid.cs" id="3_8sq4i"]
+[ext_resource type="PackedScene" uid="uid://bty02c4dwigq" path="res://dice_set.tscn" id="4_a2258"]
+[ext_resource type="PackedScene" uid="uid://cq3cr6igrjnka" path="res://table_game.tscn" id="5_1xsix"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_8sq4i"]
 keycode = 4194308
@@ -17,14 +19,17 @@ border_width_right = 3
 border_width_bottom = 3
 border_color = Color(97.237, 0, 0.168, 1)
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("_throwButton")]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("_throwButton", "_diceSet")]
 script = ExtResource("1_37p78")
 _throwButton = NodePath("ThrowDice")
+_diceSet = NodePath("DiceSet")
 metadata/_edit_vertical_guides_ = [-90.0]
 
 [node name="ThrowDice" type="Button" parent="."]
-offset_right = 1222.0
-offset_bottom = 1208.0
+offset_left = 549.0
+offset_top = 6.0
+offset_right = 1771.0
+offset_bottom = 1214.0
 scale = Vector2(0.04, 0.04)
 theme_override_font_sizes/font_size = 30
 theme_override_icons/icon = ExtResource("2_64ctp")
@@ -34,19 +39,20 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Label" type="Label" parent="."]
-offset_left = 50.0
-offset_right = 99.0
-offset_bottom = 49.0
+offset_left = 599.0
+offset_top = 6.0
+offset_right = 648.0
+offset_bottom = 55.0
 theme_override_font_sizes/font_size = 30
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ResultGrid" type="GridContainer" parent="."]
-offset_left = 250.0
-offset_top = 150.0
-offset_right = 618.0
-offset_bottom = 428.0
+offset_left = 750.0
+offset_top = 171.0
+offset_right = 1110.0
+offset_bottom = 426.0
 scale = Vector2(0.9, 0.9)
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
@@ -128,3 +134,30 @@ theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_64ctp")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="DiceSet" parent="." instance=ExtResource("4_a2258")]
+position = Vector2(100, 32)
+metadata/_edit_group_ = true
+
+[node name="TableGame1" parent="." instance=ExtResource("5_1xsix")]
+anchors_preset = -1
+anchor_right = 0.340278
+offset_left = 10.0
+offset_top = 70.0
+offset_right = 10.0
+offset_bottom = 70.0
+scale = Vector2(0.9, 0.9)
+metadata/_edit_use_anchors_ = true
+
+[node name="TableGame2" parent="." instance=ExtResource("5_1xsix")]
+anchors_preset = -1
+anchor_right = 0.353299
+offset_left = 370.0
+offset_top = 70.0
+offset_right = 370.0
+offset_bottom = 70.0
+scale = Vector2(0.9, 0.9)
+metadata/_edit_use_anchors_ = true
+
+[connection signal="ClickSymbol" from="TableGame1" to="." method="OnClickSymbol"]
+[connection signal="ClickSymbol" from="TableGame2" to="." method="OnClickSymbol"]

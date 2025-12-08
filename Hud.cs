@@ -18,8 +18,6 @@ public partial class Hud : CanvasLayer
 	private TableGame [] arrTableGame = new TableGame[2];
 	private ResultGrid resultGrid;
 	
-	private InputDialog _inputDialog;
-	
 	Dictionary<Combination, ScoreCalculator> calculators = new Dictionary<Combination, ScoreCalculator>
 	{
 		{ Combination.ONE, new ScoolCalculator() },
@@ -49,36 +47,11 @@ public partial class Hud : CanvasLayer
 				dice._SetDiceEnabled += OnSetDiceEnabled;
 			}
 		}		
-		  // Инициализируем и показываем диалог сразу
-		if(InitInputDialog())
-		{
-			// Используем CallDeferred чтобы убедиться, что все узлы полностью загружены
-			CallDeferred(nameof(ShowInputDialog));
-		}			
 		resultGrid = GetNode<ResultGrid>("ResultGrid");
-	}
-	
-	private bool InitInputDialog()
-	{
-		_inputDialog = GD.Load<PackedScene>("res://InputDialog.tscn").Instantiate<InputDialog>();
-		if(_inputDialog == null) 
-		{
-			GD.PrintErr("Не удалось загрузить InputDialog");
-			return false;
-		}				
-		AddChild(_inputDialog);				
-		// Подключаем сигналы
-		_inputDialog.OkPressed += OnFirstButtonPressed;
-		_inputDialog.CancelPressed += OnSecondButtonPressed;			
-		return true;
-	}
 
-	private void ShowInputDialog()
-	{
-		 _inputDialog.ShowDialog("Введите имена игроков");
 	}
 	
-	private void OnFirstButtonPressed(string firstText, string secondText)
+	public void OnFirstButtonPressed(string firstText, string secondText)
 	{
 		GD.Print($"Игроки: {firstText}, {secondText}");		
 		// Устанавливаем имена игроков
@@ -92,7 +65,7 @@ public partial class Hud : CanvasLayer
 		GD.Print("Игра началась!");
 	}
 
-	private void OnSecondButtonPressed()
+	public void OnSecondButtonPressed()
 	{
 		GD.Print("Ввод имен отменен");		
 		// Инициализируем UI с именами по умолчанию
@@ -104,7 +77,7 @@ public partial class Hud : CanvasLayer
 	{
 		Payer currPayer = game.GetCurrentPayer();	
 		// Инициализируем таблицы игроков
-		arrTableGame[0] = GetParent().GetNode<TableGame>("TableGame1");
+		arrTableGame[0] = GetNode<TableGame>("TableGame1");
 		arrTableGame[0].SetNamePlayer(game.vPaers[0].name);
 		resultGrid.SetName1(game.vPaers[0].name);
 		
@@ -113,7 +86,7 @@ public partial class Hud : CanvasLayer
 		game.NextPayer();
 		currPayer = game.GetCurrentPayer();
 		
-		arrTableGame[1] = GetParent().GetNode<TableGame>("TableGame2");
+		arrTableGame[1] = GetNode<TableGame>("TableGame2");
 		arrTableGame[1].SetNamePlayer(game.vPaers[1].name);
 		arrTableGame[1].SetSceneDisabled(true);    
 		resultGrid.SetName2(game.vPaers[1].name);
@@ -193,25 +166,6 @@ public partial class Hud : CanvasLayer
 			arrayCube.SetStateUp(index, !newVal);
 	}
 	
-	//private void PrintArr()
-	//{
-		//StringBuilder db = new StringBuilder("arr : ");
-		//for( int i = 0; i < arrayCube.diceValues.Count; ++i){
-			//db.Append(arrayCube.diceValues[i]);
-			//db.Append(" ");
-		//}
-		//GD.Print(db.ToString());
-	//}
-	//
-	//private void _PrintArr()
-	//{
-		//StringBuilder db = new StringBuilder("arrUp : ");
-		//for( int i = 0; i < arrayCube.stateUp.Count; ++i){
-			//db.Append(arrayCube.stateUp[i]);
-			//db.Append(" ");
-		//}
-		//GD.Print(db.ToString());
-	//}
 	
 	private void OnClickSymbol(Combination comb)
 	{

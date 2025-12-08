@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://blos380mb6hvx"]
+
+[ext_resource type="Script" uid="uid://cbuvkiyxy5p5w" path="res://NetworkScene.cs" id="1_35tat"]
+
+[node name="NetworkScene" type="Node2D"]
+script = ExtResource("1_35tat")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LogText" type="TextEdit" parent="UI"]
+layout_mode = 0
+offset_right = 551.0
+offset_bottom = 154.0
+editable = false
+
+[node name="MessageInput" type="LineEdit" parent="UI"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 162.0
+offset_right = 552.0
+offset_bottom = 193.0
+
+[node name="ServerButton" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 215.0
+offset_right = 107.0
+offset_bottom = 246.0
+text = "Сервер"
+
+[node name="ClientButton" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 215.0
+offset_right = 245.0
+offset_bottom = 246.0
+text = "Клиент"
+
+[node name="SendButton" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 382.0
+offset_top = 218.0
+offset_right = 544.0
+offset_bottom = 249.0
+text = "Сообщение послать"
