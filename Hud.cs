@@ -2,6 +2,13 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks; 
+
+public interface INetWorkCtrl
+{
+	Task SendMessge(string msg);
+	//string ReciveMessge();
+}
 
 public partial class Hud : CanvasLayer
 {
@@ -17,6 +24,8 @@ public partial class Hud : CanvasLayer
 	private TableGame currTableGame = null;
 	private TableGame [] arrTableGame = new TableGame[2];
 	private ResultGrid resultGrid;
+	
+	private INetWorkCtrl netWorkCtrl = null;
 	
 	Dictionary<Combination, ScoreCalculator> calculators = new Dictionary<Combination, ScoreCalculator>
 	{
@@ -36,6 +45,10 @@ public partial class Hud : CanvasLayer
 		{ Combination.FIVE_OF_A_KIND, new FiveOfAKindCalculator() },
 		{ Combination.SUM_OF_A_KIND, new SumKindCalculator() }
 	};
+	
+	public void SetNetWorkCtrl(INetWorkCtrl _netWorkCtrl){
+		this.netWorkCtrl = _netWorkCtrl;
+	}
 	
 	public override void _Ready()
 	{		
@@ -167,7 +180,7 @@ public partial class Hud : CanvasLayer
 	}
 	
 	
-	private void OnClickSymbol(Combination comb)
+	private async void OnClickSymbol(Combination comb)
 	{
 	//	GD.Print("OnClickSymbol ");
 		if (calculators.TryGetValue(comb, out ScoreCalculator calculator))
@@ -195,6 +208,9 @@ public partial class Hud : CanvasLayer
 					// Загрузка для второй таблицы забанить призы
 					currPayer = game.GetCurrentPayer();
 					currTableGame.FillTable(currPayer.boardGame);
+					
+					if( netWorkCtrl!= null )
+						await netWorkCtrl.SendMessge($"next game {val}");
 				}
 			}
 		//	GD.Print("OnClickSymbol ", val);

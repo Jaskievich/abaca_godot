@@ -1,7 +1,8 @@
 using Godot;
 using System;
+using System.Threading.Tasks; 
 
-public partial class Main : Node2D
+public partial class Main : Node2D, INetWorkCtrl
 {
 	private Button openNetButton;
 	private Hud _hud;
@@ -17,7 +18,8 @@ public partial class Main : Node2D
 		{
 			// Используем CallDeferred чтобы убедиться, что все узлы полностью загружены
 			CallDeferred(nameof(ShowInputDialog));
-		}		
+		}	
+		_hud.SetNetWorkCtrl(this);	
 	}
 	private bool InitInputDialog()
 	{
@@ -46,5 +48,7 @@ public partial class Main : Node2D
 		GetTree().ChangeSceneToFile("res://network_scene.tscn");
 	}
 	
-	
+	public async Task SendMessge(string msg){
+		GD.Print(msg);
+	}
 }
