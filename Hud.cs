@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 public interface INetWorkCtrl
 {
 	Task SendMessge(string msg);
+	string NameCurrent {get;}
 	//string ReciveMessge();
 }
 
@@ -78,13 +79,6 @@ public partial class Hud : CanvasLayer
 		GD.Print("Игра началась!");
 	}
 
-	public void OnSecondButtonPressed()
-	{
-		GD.Print("Ввод имен отменен");		
-		// Инициализируем UI с именами по умолчанию
-		InitializeGameUI();
-	}
-
 	// Новый метод для инициализации UI после ввода имен
 	private void InitializeGameUI()
 	{
@@ -110,6 +104,12 @@ public partial class Hud : CanvasLayer
 		
 	private void OnThrowButtonPressed()
 	{
+		if( netWorkCtrl!= null ){
+			Payer currPayer = game.GetCurrentPayer();
+			if( netWorkCtrl.NameCurrent != currPayer.name )
+				return;
+		}
+		
 		if( game.currStep >=  Game.N_STEP) return ;
 		arrayCube.SetDiceRandom();
 		// Отключаем кнопку на время броска
@@ -191,7 +191,7 @@ public partial class Hud : CanvasLayer
 			}
 			int val = calculator.Calculate(arrayCube.diceValues);
 			GD.Print("OnClickSymbol val", val);
-			if( game.SetValue(val, calculator.symbol)){			
+			if( game.SetValue(ref val, calculator.symbol)){			
 			//	GD.Print("OnClickSymbol name: ", currPayer.name);
 				if (currTableGame != null)
 				{		
@@ -209,12 +209,35 @@ public partial class Hud : CanvasLayer
 					currPayer = game.GetCurrentPayer();
 					currTableGame.FillTable(currPayer.boardGame);
 					
-					if( netWorkCtrl!= null )
-						await netWorkCtrl.SendMessge($"next game {val}");
+					if( netWorkCtrl!= null ){
+						await netWorkCtrl.SendMessge($"mvg {val} {calculator.symbol}");
+					}
 				}
 			}
 		//	GD.Print("OnClickSymbol ", val);
 		}
+	}
+	
+	public void SetSymbolClick(int val, Combination symbol){
+			if( game.SetValue(ref val, symbol)){			
+			//	GD.Print("OnClickSymbol name: ", currPayer.name);
+				if (currTableGame != null)
+				{		
+					Payer currPayer = game.GetCurrentPayer();			
+					currTableGame.FillTable(currPayer.boardGame);
+					resultGrid.SetValue(currPayer.name, currPayer.boardGame.sumTotal, currPayer.boardGame.sumScool);
+					if (game.IsGameOver()) {
+				//// Вывести сообщение о победителе и выйти из цикла игры 					
+						ShowAcceptDialog("Игра окончена", game.messageResult);
+						return;
+					}
+					arrayCube.Reset();
+					NextTableGame(game.NextPayer());
+					// Загрузка для второй таблицы забанить призы
+					currPayer = game.GetCurrentPayer();
+					currTableGame.FillTable(currPayer.boardGame);
+				}
+			}
 	}
 	
 	 public void ShowAcceptDialog(string title, string message)

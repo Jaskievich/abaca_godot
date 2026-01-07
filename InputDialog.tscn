@@ -1,11 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://drqyr7wo7c15q"]
+[gd_scene load_steps=3 format=3 uid="uid://drqyr7wo7c15q"]
 
 [ext_resource type="Script" uid="uid://bc4tjtmo3nkdl" path="res://InputDialog.cs" id="1_cstx5"]
+[ext_resource type="ButtonGroup" uid="uid://w1ietxmyej7v" path="res://InputDialog_group.tres" id="2_gwq0a"]
 
 [node name="InputDialog" type="AcceptDialog"]
 title = "Введите игроков"
 position = Vector2i(0, 36)
-size = Vector2i(299, 190)
+size = Vector2i(342, 282)
 visible = true
 ok_button_text = "Применить"
 script = ExtResource("1_cstx5")
@@ -14,8 +15,27 @@ OkText = "Применить"
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 8.0
 offset_top = 8.0
-offset_right = 291.0
-offset_bottom = 141.0
+offset_right = 334.0
+offset_bottom = 233.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+button_pressed = true
+button_group = ExtResource("2_gwq0a")
+text = "Два игрока на одном компьютере"
+
+[node name="CheckButton2" type="CheckButton" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+button_group = ExtResource("2_gwq0a")
+text = "Сетевая игра (сервер)"
+
+[node name="CheckButton3" type="CheckButton" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+button_group = ExtResource("2_gwq0a")
+text = "Сетевая игра (клиент)"
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -30,3 +50,7 @@ text = "Игрок 2 :"
 
 [node name="LineEdit2" type="LineEdit" parent="VBoxContainer"]
 layout_mode = 2
+
+[connection signal="toggled" from="VBoxContainer/VBoxContainer/CheckButton" to="." method="OnCheckButton3Toggled"]
+[connection signal="toggled" from="VBoxContainer/VBoxContainer/CheckButton2" to="." method="OnCheckButton2Toggled"]
+[connection signal="toggled" from="VBoxContainer/VBoxContainer/CheckButton3" to="." method="OnCheckButton3Toggled"]

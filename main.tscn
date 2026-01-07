@@ -10,9 +10,14 @@ script = ExtResource("1_1bvp3")
 offset = Vector2(10, 10)
 transform = Transform2D(1, 0, 0, 1, 10, 10)
 
-[node name="Button" type="Button" parent="."]
-offset_left = 781.0
-offset_top = 18.0
-offset_right = 888.0
-offset_bottom = 75.0
-text = "Сеть"
+[node name="NameNetGamer" type="Label" parent="."]
+offset_left = 914.0
+offset_top = 33.0
+offset_right = 1135.0
+offset_bottom = 85.0
+
+[node name="ServerIp" type="Label" parent="."]
+offset_left = 723.0
+offset_top = 33.0
+offset_right = 904.0
+offset_bottom = 91.0

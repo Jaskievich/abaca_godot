@@ -6,13 +6,15 @@ public partial class InputDialog : AcceptDialog
 	[Export] public string OkText { get; set; } = "OK";
 	[Export] public string CancelText { get; set; } = "Отмена";
 
-	private LineEdit _firstEdit;
-	private LineEdit _secondEdit;
+	private LineEdit _firstEdit = null;
+	private LineEdit _secondEdit = null;
 	//private Button _cancelButton;
 
 	[Signal] public delegate void OkPressedEventHandler(string firstText, string secondText);
 	[Signal] public delegate void CancelPressedEventHandler();
-
+	[Signal] public delegate void _OnCheckButtonToggledEventHandler();
+	[Signal] public delegate void _OnCheckButton2ToggledEventHandler();
+	[Signal] public delegate void _OnCheckButton3ToggledEventHandler();
 	public override void _Ready()
 	{
 		_firstEdit = GetNode<LineEdit>("VBoxContainer/LineEdit");
@@ -37,6 +39,17 @@ public partial class InputDialog : AcceptDialog
 
 		// Обработка Enter/ESC уже встроена в AcceptDialog
 	}
+	
+	public string GetFirstName(){
+		if(_firstEdit!=null)
+			return _firstEdit.Text;
+		return "";
+	}
+	public string GetSecondName(){
+		if(_secondEdit!=null)
+			return _secondEdit.Text;
+		return "";
+	}
 
 	private void OnOkPressed()
 	{
@@ -55,5 +68,37 @@ public partial class InputDialog : AcceptDialog
 		Title = title;
 		PopupCentered(new Vector2I(400, 250));
 		_firstEdit.GrabFocus();
+	}
+	
+	public void OnCheckButton2Toggled(bool s){
+		if( s == false ) return;
+		if(_secondEdit!=null){			
+			_secondEdit.Text = s?"Игрок X":"";
+			_secondEdit.Visible = !s;
+			GetNode<Label>("VBoxContainer/Label2").Visible = !s;
+		}
+		EmitSignal(SignalName._OnCheckButton2Toggled);
+	}
+	
+	public void OnCheckButton3Toggled(bool s){
+		if( s == false ) return;
+		if(_secondEdit!=null){			
+			_secondEdit.Text = "";
+			_secondEdit.Visible = s;
+			GetNode<Label>("VBoxContainer/Label2").Visible = s;
+			GetNode<Label>("VBoxContainer/Label2").Text = "IP-адрес сервера";
+		}
+		EmitSignal(SignalName._OnCheckButton3Toggled);
+	}
+	
+	public void OnCheckButtonToggled(bool s){
+		if( s == false ) return;
+		if(_secondEdit!=null){			
+			_secondEdit.Visible = s;
+			_secondEdit.Text = "";
+			GetNode<Label>("VBoxContainer/Label2").Visible = s;
+			GetNode<Label>("VBoxContainer/Label2").Text = "Игрок 2";
+		}
+		EmitSignal(SignalName._OnCheckButtonToggled);
 	}
 }

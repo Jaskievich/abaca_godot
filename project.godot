@@ -13,7 +13,7 @@ config_version=5
 config/name="Abaca_godot"
 run/main_scene="uid://cowx6fn34l6vw"
 config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://mnf33winq2wq"
 
 [display]
 

@@ -354,7 +354,7 @@ public class Game
 		return index;
 	}
 	
-	public bool SetValue(int val, Combination symb)
+	public bool SetValue(ref int val, Combination symb)
 	{
 		if (currStep == 1) val *= 2; // удваиваем, если с первого раза выпала комбинация
 		return vPaers[index].SetValue(val, symb);
