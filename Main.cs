@@ -127,18 +127,22 @@ public partial class Main : Node2D, INetWorkCtrl
 	}
 	public string NameCurrent {get;private set;	}
 	
-	public void OnCheckButtonServerToggled(){
+	public void OnCheckButtonServerToggled(bool s){
 		GD.Print("main OnCheckButton2Toggled ");
 		// сетевое подключение
-			//_inputDialog.OkPressed -= _hud.OnFirstButtonPressed;
-		_inputDialog.OkPressed += OnOpenNetServer;
+		if( s )
+			_inputDialog.OkPressed += OnOpenNetServer;
+		else 
+			_inputDialog.OkPressed -= OnOpenNetServer;
 	}
 	
-	public void OnCheckButtonClientToggled(){
+	public void OnCheckButtonClientToggled(bool s){
 		GD.Print("main OnCheckButton2Toggled ");
-		// сетевое подключение		
+		if( s )
 		//_inputDialog.OkPressed -= _hud.OnFirstButtonPressed;
-		_inputDialog.OkPressed += OnOpenNetClient;
+			_inputDialog.OkPressed += OnOpenNetClient;
+		else 
+			_inputDialog.OkPressed -= OnOpenNetClient;
 	}
 	
 	public void OnCancelButtonPressed()

@@ -51,6 +51,6 @@ text = "Игрок 2 :"
 [node name="LineEdit2" type="LineEdit" parent="VBoxContainer"]
 layout_mode = 2
 
-[connection signal="toggled" from="VBoxContainer/VBoxContainer/CheckButton" to="." method="OnCheckButton3Toggled"]
+[connection signal="toggled" from="VBoxContainer/VBoxContainer/CheckButton" to="." method="OnCheckButtonToggled"]
 [connection signal="toggled" from="VBoxContainer/VBoxContainer/CheckButton2" to="." method="OnCheckButton2Toggled"]
 [connection signal="toggled" from="VBoxContainer/VBoxContainer/CheckButton3" to="." method="OnCheckButton3Toggled"]
