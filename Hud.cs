@@ -270,6 +270,72 @@ public partial class Hud : CanvasLayer
 		}
 	}
 	
+	
+	public override void _Input(InputEvent @event)
+	{
+		if( netWorkCtrl!= null ){
+			Payer currPayer = game.GetCurrentPayer();
+			if( netWorkCtrl.NameCurrent != currPayer.name )
+				return;
+		}
+		// Проверяем, что это нажатие клавиши
+		if (@event is InputEventKey keyEvent)
+		{
+			// Проверяем, было ли это нажатие (не удержание)
+			if (keyEvent.Pressed)
+			{
+				// Проверяем, какое именно действие было нажато (если настроено)
+				//if (Input.IsActionPressed("move_right")) // Предполагаем, что "move_right" настроено
+				//{
+					//GD.Print("Правая стрелка нажата (через действие)!");
+				//}
+				if (keyEvent.Keycode == Key.Space) 
+				{
+					OnThrowButtonPressed();
+					return;
+				}
+				if ( keyEvent.Keycode >= Key.Key1 && keyEvent.Keycode <= Key.Key6){
+					OnClickSymbol((Combination)(keyEvent.Keycode - Key.Key0)) ;
+					return;
+				}
+
+				if(keyEvent.Keycode == Key.Enter)
+				{
+					OnClickSymbol(Combination.SUM_OF_A_KIND);
+					return;
+				}
+				
+				switch (keyEvent.Keycode){
+					case Key.P:
+						OnClickSymbol(Combination.PAIR);
+						break;
+					case Key.D:
+						OnClickSymbol(Combination.TWO_PAIRS);
+						break;
+					case Key.T:
+						OnClickSymbol(Combination.THREE_OF_A_KIND);
+						break;
+					case Key.F:
+						OnClickSymbol(Combination.FULL_HOUSE);
+						break;
+					case Key.E:
+						OnClickSymbol(Combination.STREET_SMALL);
+						break;
+					case Key.S:
+						OnClickSymbol(Combination.STREET_BIG);
+						break;
+					case Key.C:
+						OnClickSymbol(Combination.FOUR_OF_A_KIND);
+						break;
+					case Key.A:
+						OnClickSymbol(Combination.FIVE_OF_A_KIND);
+						break;
+				}
+				
+			}
+		}
+	}
+	
 	private void NextTableGame(int index){
 		currTableGame.SetSceneDisabled(true);
 		currTableGame = arrTableGame[index];
@@ -277,4 +343,5 @@ public partial class Hud : CanvasLayer
 		GetNode<Label>("Label").Text = game.currStep.ToString();
 		ResetDiceSet();
 	}
+	
 }

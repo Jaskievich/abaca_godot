@@ -96,7 +96,7 @@ public partial class TableGame : Control
 		 //// Обработка клавиатуры
 		//else if (@event is InputEventKey keyEvent && keyEvent.Pressed && !keyEvent.Echo)
 		//{
-			//GD.Print($"OnGuiInput key");
+			//GD.Print("OnGuiInput key");
 			//HandleKeyboardInput(sourceLabel, keyEvent);
 		//}
 	}
@@ -106,6 +106,7 @@ public partial class TableGame : Control
 		//// Enter или Space для активации
 		//if ( k_map.ContainsKey(keyEvent.Keycode) ){
 			//if( k_map[keyEvent.Keycode] == sourceLabel.Text){
+				//GD.Print("HandleKeyboardInput " + keyEvent);
 				//ProcessLabelClick(sourceLabel);
 				//GetViewport().SetInputAsHandled();
 			//}
