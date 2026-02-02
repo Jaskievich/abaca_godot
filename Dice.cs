@@ -98,7 +98,7 @@ public partial class Dice : RigidBody2D
 		}
 	}
 	
-	private void OnDiceClicked()
+	public void OnDiceClicked()
 	{	
 		isEnabled = !isEnabled;
 		SetDiceEnabled(isEnabled);

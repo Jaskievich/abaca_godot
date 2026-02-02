@@ -269,8 +269,57 @@ public partial class Hud : CanvasLayer
 			}
 		}
 	}
-	
-	
+
+	private static int index = -1; // для хождения по костям
+
+	private void NextDiceSelect()
+	{
+		var diceArray = _diceSet.GetChildren();
+		if (diceArray.Count == 0) return;
+		// Снимаем выделение с текущего
+		if (index >= 0 && index < diceArray.Count)
+		{
+			if (diceArray[index] is Dice current){
+				if( current.IsEnabled )
+					current.Highlight(false);
+			}
+		}
+		// Обновляем индекс
+		index = (index + 1) % diceArray.Count;
+		// Выделяем новый
+		if (diceArray[index] is Dice next)
+			if( next.IsEnabled )	next.Highlight(true);
+	}
+
+	private void PrevDiceSelect()
+	{
+		var diceArray = _diceSet.GetChildren();
+		if (diceArray.Count == 0) return;
+		// Снимаем выделение с текущего
+		if (index >= 0 && index < diceArray.Count)
+		{
+			if (diceArray[index] is Dice current){
+				if( current.IsEnabled )
+					current.Highlight(false);
+			}		
+		}
+		// Обновляем индекс
+		index = (index - 1 + diceArray.Count) % diceArray.Count;
+		// Выделяем новый
+		if (diceArray[index] is Dice next)
+			if( next.IsEnabled )	next.Highlight(true);
+	}
+
+	private void KeyDiceSelect()
+	{
+		var diceArray = _diceSet.GetChildren();
+		if (diceArray.Count == 0) return;
+		if (diceArray[index] is Dice next)
+		{
+			next.OnDiceClicked();
+		}
+	}
+
 	public override void _Input(InputEvent @event)
 	{
 		if( netWorkCtrl!= null ){
@@ -284,11 +333,29 @@ public partial class Hud : CanvasLayer
 			// Проверяем, было ли это нажатие (не удержание)
 			if (keyEvent.Pressed)
 			{
-				// Проверяем, какое именно действие было нажато (если настроено)
-				//if (Input.IsActionPressed("move_right")) // Предполагаем, что "move_right" настроено
-				//{
-					//GD.Print("Правая стрелка нажата (через действие)!");
-				//}
+
+				if (keyEvent.Keycode == Key.Right)
+				{
+					NextDiceSelect();
+					return;
+				}
+
+				if (keyEvent.Keycode == Key.Left)
+				{
+					PrevDiceSelect();
+					return;
+				}
+				if (keyEvent.Keycode == Key.Up)
+				{
+					KeyDiceSelect();
+					return;
+				}
+				if (keyEvent.Keycode == Key.Down)
+				{
+					KeyDiceSelect();
+					return;
+				}
+
 				if (keyEvent.Keycode == Key.Space) 
 				{
 					OnThrowButtonPressed();

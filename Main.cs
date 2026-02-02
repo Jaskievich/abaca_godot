@@ -78,10 +78,16 @@ public partial class Main : Node2D, INetWorkCtrl
 			AddChild(network);
 			_hud.SetNetWorkCtrl(this);	
 			network.OnMessageReceived += HandleNetworkMessage;
-			if( string.IsNullOrEmpty(serverIP) )
-				network.ConnectAsClient();
+			if( !string.IsNullOrEmpty(serverIP) ){
+				string [] arr = serverIP.Split(":");
+				var _serverIP = arr[0];
+				if( arr.Length > 1 ){
+					network.ConnectAsClient(_serverIP, int.Parse(arr[1]));
+				}
+				else network.ConnectAsClient(_serverIP);
+			}
 			else
-				network.ConnectAsClient(serverIP);
+				network.ConnectAsClient();
 			if(  network.isClient ){
 				NameCurrent = firstText;
 				// послать сервреу имя клиента (второго игрока)

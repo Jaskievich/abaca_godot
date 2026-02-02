@@ -106,12 +106,12 @@ public partial class NetworkScene : Node
 	/// <summary>
 	/// Подключиться как клиент
 	/// </summary>
-	public bool ConnectAsClient(string ip = SERVER_IP)
+	public bool ConnectAsClient(string ip = SERVER_IP, int _port = PORT)
 	{
 		GD.Print($"Подключение к серверу {ip}:{PORT}...");
 		
 		peer = new ENetMultiplayerPeer();
-		var result = peer.CreateClient(ip, PORT);
+		var result = peer.CreateClient(ip, _port);
 		
 		if (result == Error.Ok)
 		{
